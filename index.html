@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Portfolio de Kossay Boubaker - Ingénieur en Génie Logiciel, Développeur Full-Stack & Spécialiste Solutions IA. Expérience interactive 3D immersive.">
+    <meta name="keywords"
+        content="Kossay Boubaker, Full Stack, Software Engineer, Three.js, React, Angular, Spring Boot, AI, Machine Learning, RAG, Tunis, Portfolio">
+    <meta name="author" content="Kossay Boubaker">
+    <title>Kossay Boubaker | Ingénieur Génie Logiciel & Full-Stack 3D</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <!-- Indicateur de progression de défilement -->
+    <div class="scroll-progress-bar" id="scrollProgressBar"></div>
+
+    <!-- Curseur Personnalisé 3D (Desktop) -->
+    <div class="custom-cursor" id="customCursor"></div>
+    <div class="custom-cursor-follower" id="cursorFollower"></div>
+
+    <!-- Canvas Three.js Arrière-Plan Cosmique -->
+    <canvas id="bg3DCanvas" class="bg-3d-canvas"></canvas>
+
+    <!-- Navigation Header -->
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo" aria-label="Accueil Kossay Boubaker">
+                <span class="logo-text">KB</span>
+                <span class="logo-dot"></span>
+            </a>
+
+            <nav class="nav-links" id="navLinks">
+                <a href="#home" class="nav-link active"><span>01.</span> Accueil</a>
+                <a href="#about" class="nav-link"><span>02.</span> À Propos</a>
+                <a href="#skills" class="nav-link"><span>03.</span> Compétences</a>
+                <a href="#experience" class="nav-link"><span>04.</span> Expérience</a>
+                <a href="#projects" class="nav-link"><span>05.</span> Projets</a>
+                <a href="#education" class="nav-link"><span>06.</span> Formation</a>
+                <a href="#certifications" class="nav-link"><span>07.</span> Certifications</a>
+                <a href="#contact" class="nav-link"><span>08.</span> Contact</a>
+            </nav>
+
+            <div class="nav-actions">
+                <a href="assets/docs/cv_kossay_boubaker.pdf" class="btn btn-sm btn-ghost nav-cv-btn" download
+                    target="_blank">
+                    <i class="fas fa-file-pdf"></i>
+                    <span>CV PDF</span>
+                </a>
+                <button class="theme-toggle" id="themeToggle" aria-label="Changer de thème">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- ============================================== -->
+        <!-- 1. HERO SECTION (EXPÉRIENCE 3D IMMERSIVE)     -->
+        <!-- ============================================== -->
+        <section id="home" class="hero">
+            <div class="container hero-container">
+                <div class="hero-grid">
+                    <!-- Colonne Gauche : Typographie & Accroche -->
+                    <div class="hero-text-content">
+                        <div class="hero-badge animate-fade-down">
+                            <span class="badge-pulse"></span>
+                            <span class="badge-text">Disponible pour de nouvelles opportunités</span>
+                        </div>
+
+                        <div class="hero-intro-label animate-fade-up">HELLO, I'M</div>
+
+                        <h1 class="hero-name animate-fade-up">
+                            <span class="text-gradient">Kossay Boubaker</span>
+                        </h1>
+
+                        <div class="hero-roles animate-fade-up">
+                            <span class="role-prefix">Spécialisé en </span>
+                            <span class="role-typing text-cyan" id="roleTyping">Ingénieur Génie Logiciel</span>
+                            <span class="typing-cursor">|</span>
+                        </div>
+
+                        <p class="hero-description animate-fade-up">
+                            Ingénieur en informatique diplômé en Génie Logiciel à <strong>ESPRIT</strong> (Tunis),
+                            passionné par la conception d'architectures <strong>Full-Stack</strong> modulaires
+                            et l'intégration de technologies d'<strong>Intelligence Artificielle</strong> de pointe
+                            (Machine Learning, RAG, LLM).
+                        </p>
+
+                        <div class="hero-cta-group animate-fade-up">
+                            <a href="#projects" class="btn btn-primary btn-glow">
+                                <span>Explorer mes projets</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                            <a href="#contact" class="btn btn-outline">
+                                <i class="fas fa-envelope"></i>
+                                <span>Me contacter</span>
+                            </a>
+                            <a href="assets/docs/cv_kossay_boubaker.pdf" class="btn btn-glass" download target="_blank">
+                                <i class="fas fa-download"></i>
+                                <span>Télécharger CV</span>
+                            </a>
+                        </div>
+
+                        <!-- Métriques Réelles du CV -->
+                        <div class="hero-metrics animate-fade-up">
+                            <div class="metric-item">
+                                <span class="metric-number" data-target="6">0</span><span class="metric-plus">+</span>
+                                <span class="metric-label">Stages & Expériences</span>
+                            </div>
+                            <div class="metric-divider"></div>
+                            <div class="metric-item">
+                                <span class="metric-number" data-target="10">0</span><span class="metric-plus">+</span>
+                                <span class="metric-label">Projets Majeurs</span>
+                            </div>
+                            <div class="metric-divider"></div>
+                            <div class="metric-item">
+                                <span class="metric-number" data-target="2">0</span>
+                                <span class="metric-label">Certifications Int.</span>
+                            </div>
+                            <div class="metric-divider"></div>
+                            <div class="metric-item">
+                                <span class="metric-highlight">ESPRIT</span>
+                                <span class="metric-label">Ingénieur Diplômé ESPRIT</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Colonne Droite : Médaillon 3D Interactif de la Photo de Profil -->
+                    <div class="hero-3d-visual">
+                        <div class="hero-3d-card-wrapper">
+                            <!-- Halo Lumineux d'ambiance 3D -->
+                            <div class="holo-glow-orb"></div>
+
+                            <!-- Conteneur Three.js pour le Médaillon 3D -->
+                            <div id="heroProfile3DContainer" class="hero-profile-3d-viewport"
+                                title="Cliquez et glissez pour faire pivoter le médaillon 3D">
+                                <div class="three-loader">
+                                    <div class="spinner-ring"></div>
+                                    <span>Génération du médaillon 3D...</span>
+                                </div>
+                            </div>
+
+                            <!-- Badges Flottants de Spécialités Techniques Réelles -->
+                            <div class="floating-badge badge-pfe">
+                                <div class="badge-icon"><i class="fas fa-brain"></i></div>
+                                <div class="badge-content">
+                                    <span class="badge-sub">PFE 2026 Exypnotech</span>
+                                    <span class="badge-main">ML & Chatbot RAG</span>
+                                </div>
+                            </div>
+
+                            <div class="floating-badge badge-stack">
+                                <div class="badge-icon"><i class="fas fa-layer-group"></i></div>
+                                <div class="badge-content">
+                                    <span class="badge-sub">Architecture</span>
+                                    <span class="badge-main">Spring Boot & Angular</span>
+                                </div>
+                            </div>
+
+                            <div class="floating-badge badge-cloud">
+                                <div class="badge-icon"><i class="fab fa-aws"></i></div>
+                                <div class="badge-content">
+                                    <span class="badge-sub">Certifié</span>
+                                    <span class="badge-main">AWS Cloud Practitioner</span>
+                                </div>
+                            </div>
+
+                            <!-- Label d'interaction 3D -->
+                            <div class="interactive-3d-tag">
+                                <i class="fas fa-cube"></i>
+                                <span>3D Interactif • Glissez pour pivoter • Double-clic pour réinitialiser</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Indicateur de Défilement Délicat -->
+            <a href="#about" class="scroll-down-indicator" aria-label="Défiler vers À Propos">
+                <div class="mouse-icon">
+                    <div class="mouse-wheel"></div>
+                </div>
+                <span>Découvrir</span>
+            </a>
+        </section>
+
+        <!-- ============================================== -->
+        <!-- 2. SECTION À PROPOS (ABOUT ME)                 -->
+        <!-- ============================================== -->
+        <section id="about" class="section about-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag"><i class="fas fa-user-astronaut"></i> 02. À Propos</span>
+                    <h2 class="section-title">Ingénieur en Génie Logiciel & Solutions IA</h2>
+                    <p class="section-subtitle">Excellence technique, vision architecturale et intégration de
+                        l'intelligence artificielle</p>
+                </div>
+
+                <div class="about-grid">
+                    <div class="about-card-profile">
+                        <div class="profile-frame-inner">
+                            <img src="assets/images/profil_framed.png" alt="Photo de profil de Kossay Boubaker"
+                                class="about-portrait-img" loading="lazy">
+                            <div class="frame-glass-overlay"></div>
+                            <div class="frame-border-glow"></div>
+                        </div>
+
+                        <div class="about-contact-cards">
+                            <div class="contact-pill">
+                                <i class="fas fa-map-marker-alt text-cyan"></i>
+                                <div>
+                                    <span class="pill-label">Localisation</span>
+                                    <span class="pill-val">Tunis, Tunisie</span>
+                                </div>
+                            </div>
+                            <div class="contact-pill">
+                                <i class="fas fa-envelope text-indigo"></i>
+                                <div>
+                                    <span class="pill-label">Email</span>
+                                    <span class="pill-val">kossayboubaker45@gmail.com</span>
+                                </div>
+                            </div>
+                            <div class="contact-pill">
+                                <i class="fas fa-phone text-emerald"></i>
+                                <div>
+                                    <span class="pill-label">Téléphone</span>
+                                    <span class="pill-val">+216 50 393 158</span>
+                                </div>
+                            </div>
+                            <div class="contact-pill">
+                                <i class="fab fa-linkedin text-cyan"></i>
+                                <div>
+                                    <span class="pill-label">LinkedIn</span>
+                                    <span class="pill-val"><a
+                                            href="https://www.linkedin.com/in/kossay-boubaker-3ab197223/"
+                                            target="_blank" rel="noopener noreferrer">Profil LinkedIn</a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="about-text-content">
+                        <h3 class="about-lead">
+                            Concevoir des architectures numériques résilientes et amplifier la valeur métier par l'IA.
+                        </h3>
+                        <p class="about-p">
+                            Diplômé Ingénieur en Génie Logiciel à l'<strong>ESPRIT</strong> (Tunis)
+                            avec une Licence en Développement Web & Multimédia à l'<strong>ISET
+                                Tozeur</strong>, je combine une solide rigueur méthodologique avec une passion constante
+                            pour les architectures modernes et l'innovation technologique.
+                        </p>
+                        <p class="about-p">
+                            Mon parcours compte <strong>6 expériences professionnelles et stages</strong> au sein
+                            d'entreprises innovantes (Exypnotech, ADDINN, ITQAN). J'y ai conçu des plateformes web
+                            complexes, des systèmes de gestion logistique augmentés par le Machine Learning et des
+                            chatbots RAG sémantiques haute précision.
+                        </p>
+
+                        <!-- Piliers d'expertise -->
+                        <div class="about-pillars">
+                            <div class="pillar-card">
+                                <div class="pillar-icon"><i class="fas fa-brain"></i></div>
+                                <h4>Intelligence Artificielle & RAG</h4>
+                                <p>Modèles ML prédictifs, pipelines RAG (chunking, embeddings vectoriels, recherche
+                                    sémantique, LLM) et modération sémantique.</p>
+                            </div>
+                            <div class="pillar-card">
+                                <div class="pillar-icon"><i class="fas fa-layer-group"></i></div>
+                                <h4>Développement Full-Stack</h4>
+                                <p>Architectures robustes et scalables avec Spring Boot, Node.js, .NET, Angular,
+                                    React.js et bases relationnelles/NoSQL.</p>
+                            </div>
+                            <div class="pillar-card">
+                                <div class="pillar-icon"><i class="fas fa-shield-alt"></i></div>
+                                <h4>Qualité & Performance</h4>
+                                <p>Couverture de tests avec JUnit, Mockito, Jest et JaCoCo, tests de charge avec JMeter
+                                    et sécurisation IAM avec Keycloak.</p>
+                            </div>
+                        </div>
+
+                        <div class="about-actions">
+                            <a href="assets/docs/cv_kossay_boubaker.pdf" class="btn btn-primary" download
+                                target="_blank">
+                                <i class="fas fa-download"></i>
+                                <span>Télécharger le CV Complet</span>
+                            </a>
+                            <a href="https://www.linkedin.com/in/kossay-boubaker-3ab197223/" target="_blank"
+                                rel="noopener noreferrer" class="btn btn-outline">
+                                <i class="fab fa-linkedin"></i>
+                                <span>LinkedIn</span>
+                            </a>
+                            <a href="https://github.com/kossayboubaker" target="_blank" rel="noopener noreferrer"
+                                class="btn btn-glass">
+                                <i class="fab fa-github"></i>
+                                <span>GitHub</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================== -->
+        <!-- 3. SECTION COMPÉTENCES TECHNIQUES (SKILLS)     -->
+        <!-- ============================================== -->
+        <section id="skills" class="section skills-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag"><i class="fas fa-layer-group"></i> 03. Compétences</span>
+                    <h2 class="section-title">Stack Technique & Expertises</h2>
+                    <p class="section-subtitle">Toutes les technologies et outils validés de mon parcours (sans
+                        pourcentages arbitraires)</p>
+                </div>
+
+                <!-- Filtres par catégories de compétences -->
+                <div class="skills-category-tabs" id="skillsTabs">
+                    <button class="skill-tab-btn active" data-cat="all">Toutes les expertises</button>
+                    <button class="skill-tab-btn" data-cat="ai">IA & Machine Learning</button>
+                    <button class="skill-tab-btn" data-cat="backend">Back-End & APIs</button>
+                    <button class="skill-tab-btn" data-cat="frontend">Front-End & UI</button>
+                    <button class="skill-tab-btn" data-cat="data">Data & Bases</button>
+                    <button class="skill-tab-btn" data-cat="qa">Tests & DevOps</button>
+                </div>
+
+                <!-- Grille de cartes 3D des compétences -->
+                <div class="skills-categories-grid" id="skillsGridContainer">
+                    <!-- Rendu dynamique via JS à partir de PORTFOLIO_DATA.skills -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================== -->
+        <!-- 4. SECTION EXPÉRIENCE PROFESSIONNELLE          -->
+        <!-- ============================================== -->
+        <section id="experience" class="section experience-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag"><i class="fas fa-briefcase"></i> 04. Parcours Professionnel</span>
+                    <h2 class="section-title">Expériences & Stages</h2>
+                    <p class="section-subtitle">L'ensemble des 6 missions et réalisations concrètes en entreprise</p>
+                </div>
+
+                <div class="timeline-v2" id="experienceTimeline">
+                    <!-- Injecté dynamiquement depuis PORTFOLIO_DATA.experiences -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================== -->
+        <!-- 5. SECTION PROJETS (PROJECTS)                  -->
+        <!-- ============================================== -->
+        <section id="projects" class="section projects-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag"><i class="fas fa-rocket"></i> 05. Projets & Réalisations</span>
+                    <h2 class="section-title">Projets d'Envergure & Démos Vidéos</h2>
+                    <p class="section-subtitle">Découvrez mes projets d'innovation technologique ainsi que leurs
+                        démonstrations vidéos</p>
+                </div>
+
+                <!-- Bannière Démonstrations Vidéos Google Drive -->
+                <div class="video-demos-banner">
+                    <div class="video-banner-left">
+                        <div class="video-banner-icon">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <div class="video-banner-text">
+                            <strong>Démonstrations Vidéos Disponibles (Google Drive)</strong>
+                            <span>Visionnez en direct les applications et fonctionnalités intelligentes
+                                développées</span>
+                        </div>
+                    </div>
+                    <div class="video-demos-list">
+                        <a href="https://drive.google.com/file/d/1yndEoHpZTIXockUzCHtkug4VmZYvPS4U/view?usp=drive_link"
+                            target="_blank" rel="noopener noreferrer" class="video-pill-link"
+                            title="Regarder la démo de la Plateforme de Postulation & Suivi de Stages">
+                            <i class="fas fa-play-circle"></i>
+                            <span>Démo Suivi des Stages</span>
+                        </a>
+                        <a href="https://drive.google.com/file/d/1Kpozr78TSgLW6fjFweRbseOnKFKFVEQS/view?usp=drive_link"
+                            target="_blank" rel="noopener noreferrer" class="video-pill-link"
+                            title="Regarder la démo du Système Intelligent de Gestion de Flotte (PFE)">
+                            <i class="fas fa-play-circle"></i>
+                            <span>Démo PFE Flotte IA</span>
+                        </a>
+                        <a href="https://drive.google.com/file/d/1XnaOJ1Q9t1RSdeSpW6kdUrKA2J4REpLP/view?usp=drive_link"
+                            target="_blank" rel="noopener noreferrer" class="video-pill-link"
+                            title="Regarder la démo d'Horizon Charge (Consultation Énergétique)">
+                            <i class="fas fa-play-circle"></i>
+                            <span>Démo Horizon Charge</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Filtres de projets -->
+                <div class="projects-filter-bar">
+                    <button class="filter-pill-btn active" data-filter="all">Tous les projets</button>
+                    <button class="filter-pill-btn" data-filter="ai">Intelligence Artificielle & RAG</button>
+                    <button class="filter-pill-btn" data-filter="fullstack">Full-Stack & Cloud</button>
+                    <button class="filter-pill-btn" data-filter="web">Web & Systèmes</button>
+                    <button class="filter-pill-btn" data-filter="mobile">Mobile (Flutter / Dart)</button>
+                </div>
+
+                <!-- Grille 3D des projets -->
+                <div class="projects-grid-v2" id="projectsGrid">
+                    <!-- Injecté dynamiquement depuis PORTFOLIO_DATA.projects -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================== -->
+        <!-- 6. SECTION FORMATION ACADÉMIQUE (EDUCATION)    -->
+        <!-- ============================================== -->
+        <section id="education" class="section education-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag"><i class="fas fa-graduation-cap"></i> 06. Formation</span>
+                    <h2 class="section-title">Parcours Académique</h2>
+                    <p class="section-subtitle">Diplômes universitaires et formation d'ingénieur d'élite</p>
+                </div>
+
+                <div class="education-grid" id="educationGrid">
+                    <!-- Injecté dynamiquement depuis PORTFOLIO_DATA.education -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================== -->
+        <!-- 7. SECTION CERTIFICATIONS                     -->
+        <!-- ============================================== -->
+        <section id="certifications" class="section cert-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag"><i class="fas fa-certificate"></i> 07. Certifications</span>
+                    <h2 class="section-title">Certifications Officielles</h2>
+                    <p class="section-subtitle">Validations internationales des compétences Cloud et technologies
+                        distribuées</p>
+                </div>
+
+                <div class="certifications-grid" id="certificationsGrid">
+                    <!-- Injecté dynamiquement depuis PORTFOLIO_DATA.certifications -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================== -->
+        <!-- 8. SECTION CONTACT                             -->
+        <!-- ============================================== -->
+        <section id="contact" class="section contact-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag"><i class="fas fa-paper-plane"></i> 08. Contact</span>
+                    <h2 class="section-title">Discutons de vos Projets</h2>
+                    <p class="section-subtitle">Ouvert aux opportunités de recrutement, missions stimulantes et
+                        collaborations innovantes</p>
+                </div>
+
+                <div class="contact-card-glass">
+                    <div class="contact-details-col">
+                        <h3>Restons en contact</h3>
+                        <p>
+                            Je suis disponible pour des opportunités professionnelles, des projets Full-Stack
+                            d'envergure ou des intégrations de solutions d'Intelligence Artificielle.
+                        </p>
+
+                        <div class="contact-info-list">
+                            <a href="mailto:kossayboubaker45@gmail.com" class="contact-channel-item">
+                                <div class="channel-icon"><i class="fas fa-envelope"></i></div>
+                                <div>
+                                    <span class="channel-label">Email Professionnel</span>
+                                    <span class="channel-value">kossayboubaker45@gmail.com</span>
+                                </div>
+                            </a>
+
+                            <a href="tel:+21650393158" class="contact-channel-item">
+                                <div class="channel-icon"><i class="fas fa-phone-alt"></i></div>
+                                <div>
+                                    <span class="channel-label">Téléphone / WhatsApp</span>
+                                    <span class="channel-value">+216 50 393 158</span>
+                                </div>
+                            </a>
+
+                            <div class="contact-channel-item">
+                                <div class="channel-icon"><i class="fas fa-map-marked-alt"></i></div>
+                                <div>
+                                    <span class="channel-label">Localisation</span>
+                                    <span class="channel-value">Tunis, Tunisie</span>
+                                </div>
+                            </div>
+
+                            <a href="https://www.linkedin.com/in/kossay-boubaker-3ab197223/" target="_blank"
+                                rel="noopener noreferrer" class="contact-channel-item">
+                                <div class="channel-icon"><i class="fab fa-linkedin-in"></i></div>
+                                <div>
+                                    <span class="channel-label">LinkedIn Professionnel</span>
+                                    <span class="channel-value">linkedin.com/in/kossay-boubaker</span>
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- Réseaux Sociaux Complets -->
+                        <div class="contact-social-bar">
+                            <a href="https://www.linkedin.com/in/kossay-boubaker-3ab197223/" target="_blank"
+                                rel="noopener noreferrer" class="contact-social-btn" title="LinkedIn"
+                                aria-label="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://github.com/kossayboubaker" target="_blank" rel="noopener noreferrer"
+                                class="contact-social-btn" title="GitHub" aria-label="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://www.facebook.com/kossay.madride/?locale=fr_FR" target="_blank"
+                                rel="noopener noreferrer" class="contact-social-btn" title="Facebook"
+                                aria-label="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://www.instagram.com/kossay.bkr?fbclid=IwY2xjawVvwtdleHRuA2FlbQIxMABwZG9mBWJyaWQRMVJZbmZEdUlzcTgxMTFSeDZzcnRjBmFwcF9pZBAyMjIwMzkxNzg4MjAwODkyAAEfR-y-YBjEqGh6CC4Hx6OwyD5ZugLBNOU32-PhKyM6DnWvwoTuDMzLjwCaGfM_aem_zRK4x4IadZeqnncLV1wSJg"
+                                target="_blank" rel="noopener noreferrer" class="contact-social-btn" title="Instagram"
+                                aria-label="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+
+                        <div class="contact-cv-box">
+                            <div class="cv-box-text">
+                                <strong>Télécharger mon dossier complet</strong>
+                                <span>Curriculum Vitae au format PDF (2026)</span>
+                            </div>
+                            <a href="assets/docs/cv_kossay_boubaker.pdf" class="btn btn-primary" download
+                                target="_blank">
+                                <i class="fas fa-download"></i>
+                                <span>CV PDF</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="contact-form-col">
+                        <form id="contactForm" class="interactive-contact-form" novalidate>
+                            <!-- Honeypot anti-spam -->
+                            <input type="text" name="website" id="contactHoneypot" style="display:none!important"
+                                tabindex="-1" autocomplete="off">
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="contactName">Nom Complet <span class="required-star">*</span></label>
+                                    <input type="text" id="contactName" name="name" placeholder="Ex: Jean Dupont"
+                                        required autocomplete="name" maxlength="100">
+                                    <span class="field-error" id="errName"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="contactEmail">Adresse Email <span class="required-star">*</span></label>
+                                    <input type="email" id="contactEmail" name="email"
+                                        placeholder="Ex: jean.dupont@entreprise.com" required autocomplete="email"
+                                        maxlength="100">
+                                    <span class="field-error" id="errEmail"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="contactCompany">Entreprise <span
+                                        class="optional-label">(optionnel)</span></label>
+                                <input type="text" id="contactCompany" name="company"
+                                    placeholder="Ex: Google, Microsoft, Startup..." maxlength="100">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="contactSubject">Objet du message <span
+                                        class="required-star">*</span></label>
+                                <input type="text" id="contactSubject" name="subject"
+                                    placeholder="Ex: Opportunité Ingénieur Full-Stack / IA" required maxlength="200">
+                                <span class="field-error" id="errSubject"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="contactMessage">Votre Message <span class="required-star">*</span></label>
+                                <textarea id="contactMessage" name="message" rows="5"
+                                    placeholder="Décrivez votre besoin, projet ou opportunité..." required
+                                    maxlength="2000"></textarea>
+                                <div class="form-meta-row">
+                                    <span class="char-count" id="charCount">0 / 2000</span>
+                                </div>
+                                <span class="field-error" id="errMessage"></span>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-full" id="contactSubmitBtn">
+                                <i class="fas fa-paper-plane" id="submitIcon"></i>
+                                <span id="submitText">Envoyer le message</span>
+                            </button>
+
+                            <div id="contactFormFeedback" class="form-feedback-message"></div>
+                        </form>
+                    </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="portfolio-footer">
+        <div class="footer-inner">
+            <div class="footer-logo">KB</div>
+            <p class="footer-copy">&copy; 2026 Kossay Boubaker &mdash; Ingénieur Génie Logiciel</p>
+            <div class="footer-socials">
+                <a href="https://www.linkedin.com/in/kossay-boubaker-3ab197223/" target="_blank" rel="noopener"
+                    aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/kossayboubaker" target="_blank" rel="noopener" aria-label="GitHub"><i
+                        class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to top -->
+    <button id="scrollTopBtn" class="scroll-top-btn" aria-label="Retour en haut">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Modal Projet Vidéo -->
+    <div id="projectVideoModal" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Démo vidéo projet">
+        <div class="modal-container">
+            <button class="modal-close-btn" id="closeVideoModal" aria-label="Fermer">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-video-wrapper">
+                <iframe id="modalVideoIframe" src="" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen title="Démo projet"></iframe>
+            </div>
+        </div>
+    </div>
+
+    </div><!-- /.page-wrapper -->
+
+    <!-- ============================================================
+         SCRIPTS — ordre impératif
+         1. Three.js CDN  (doit être avant three-scene.js)
+         2. GSAP          (animations réveil)
+         3. profile-base64 (image base64 → window.PROFILE_IMAGE_DATA)
+         4. portfolio-data (données)
+         5. three-scene   (moteur 3D)
+         6. script        (logique principale)
+    ============================================================ -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" crossorigin="anonymous"></script>
+    <script src="js/data/profile-base64.js"></script>
+    <script src="js/data/portfolio-data.js"></script>
+    <script src="js/three-scene.js"></script>
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>
